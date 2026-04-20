@@ -1,4 +1,5 @@
 WEB TECHNOLOGY PROJECT
+
 TOPIC: SCHOOL WEBSITE
 
 
@@ -14,9 +15,8 @@ COURSE: BCA (2nd Semester)
 SUBMITTED TO:
 
 Miss Gurpreet Kaur
-Assistant Professor
 
-SUBJECT:
+Assistant Professor
 
 Web Technology
 
