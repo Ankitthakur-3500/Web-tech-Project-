@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Greenwood Academy</title>
+
+<style>
+
+:root {
+      --navy:   #0b1f3a;
+      --gold:   #e8a020;
+      --gold2:  #f5c84a;
+      --cream:  #fdf8ef;
+      --white:  #ffffff;
+      --gray:   #f4f4f4;
+      --text:   #1a1a2e;
+      --muted:  #6b7280;
+      --green:  #1a7a4a;
+      --radius: 14px;
+      --shadow: 0 8px 40px rgba(11,31,58,0.12);
+    }
+   body{
+    font-family: Arial;
+    margin:0;
+    padding:0;
+    background: white;
+}
+header{
+    margin-top:60px;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
+    background-size:cover;
+    color:white;
+    text-align:left;
+    padding:80px;
+}
+
+header h1{ 
+  font-size:40px; 
+}
+
+.section1{
+    padding:0px;
+}
+section{
+    padding:20px;
+}
+
+.container1{
+    background-color: #0b1f3a;
+    color:#dfe9f3;
+    width:97%;
+    margin: auto;
+    padding: 20px;
+}
+.container{
+    width: 50%;
+}
+.container2{
+    width: 90%;
+    margin: auto;
+}
+.box{
+    background:white;
+    padding:15px;
+    margin:15px 0;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+}
+.card {
+    width: 99%;
+    padding: 20px;
+    border-radius: 15px;
+    background: var(--cream);
+    height: 70px;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    background: var(--white); box-shadow: var(--shadow); transform: translateX(4px); 
+}
+
+h2{
+    color:#003366;
+    border-bottom:2px solid orange;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+button{
+    background:#003366;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:orange;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin:5px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:10px;
+    margin-top:20px;
+}
+#faculty { background: var(--cream); }
+.faculty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+    .faculty-card {
+      background: var(--white); border-radius: 16px;
+      padding: 28px 20px; text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+    .faculty-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .faculty-avatar {
+      width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; border: 3px solid var(--gold);
+    }
+    .faculty-card h4 { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .faculty-card .role { color: var(--gold); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+    .faculty-card .dept { color: var(--muted); font-size: 0.8rem; }
+
+nav {
+      position: fixed; top: 0; width: 90%; z-index: 1000;
+      background: rgba(11,31,58,0.97);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 70px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo .logo-icon {
+      width: 44px; height: 44px; background: var(--gold);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .nav-logo span { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
+    .nav-logo span em { color: var(--gold); font-style: normal; }
+
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+      transition: all 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active { background: var(--gold); color: var(--navy); }
+
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      border: none; padding: 10px 22px; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,160,32,0.5); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+#contact-container {
+    background: var(--cream);
+    padding: 40px 0;
+}
+
+.container4 {
+    max-width: 1000px;
+    margin: auto; /* centers whole section */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center; /* center content */
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px; /* keeps it compact */
+}
+
+.contact-block {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    font-size: 22px;
+    margin-right: 15px;
+}
+header {
+    margin-top: 70px;
+    height: 90vh;
+
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                      url("https://t4.ftcdn.net/jpg/02/09/47/39/360_F_209473946_uIvAdX6rxOrdFpOGvvY2YwVXD1K37kmr.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: white;
+    padding: 0 80px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <div class="logo-icon">🎓</div>
+    <span>Greenwood <em>Academy</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about" >About</a></li>
+    <li><a href="#Courses">Courses</a></li>
+    <li><a href="#admissions">Admissions</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('admissions').scrollIntoView({ behavior: 'smooth' })">Register Now</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Home -->
+
+
+<header id="home">
+    <div class="hero-content">
+        <h1>Greenwood Academy</h1>
+        <p>
+            Welcome to Greenwood Academy — where academic excellence <br>
+            meets holistic development. We nurture curious minds and <br>
+            confident leaders for tomorrow's world.
+        </p>
+        <button onclick="welcome()">Apply Now</button>
+    </div>
+</header>
+
+<section1 id="admissions">
+    <div class="container1" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:30px;">
+
+        <!-- LEFT CONTENT -->
+        <div class="container" style="flex:1; min-width:300px; display:flex; flex-direction:column; justify-content:flex-start; line-gap-override: 5px;">
+            <p style="color: white; padding: 10px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 26px; border-bottom:2px solid orange ;">
+                Join ABC Institute for the Session 2026-27
+            </p>
+            <p style="word-spacing: 5px;"> >> Greenwood Academy was founded with a vision to create a learning environment that is both academically rigorous and personally nurturing. Our campus is a vibrant community of learners.
+            <h3 style="color: #e8a020;">Mission-Driven Education 🚀:</h3>
+            We align every program with our mission to develop well-rounded individuals ready for global challenges.
+            <h3 style="color: #e8a020;">Innovation & Technology 💡:</h3>
+            State-of-the-art labs, smart classrooms and digital learning tools prepare students for the future. </p>
+        </div> 
+
+        <!-- RIGHT FORM -->
+        <div style="flex:1; min-width:300px;">
+            <div class="box" style="background:var(--white);">
+
+                <h2 style="margin-bottom:10px;">Registration Form</h2>
+
+                <form onsubmit="return registerStudent()">
+
+                    <input type="text" placeholder="Full Name" style="width:97%" required>
+                    <input type="email" placeholder="Email Address" style="width:97%" required>
+                    <input type="tel" placeholder="Phone Number"  style="width:97%" required>
+                    <input type="text" placeholder="City" style="width:97%" required>
+
+                    <select style="width:100%; padding:8px; margin:5px 0; border-radius:5px; border:1px solid #ccc;" required>
+                        <option value="">Select Course</option>
+                        <option>Web Development</option>
+                        <option>Data Structures</option>
+                        <option>Computer Fundamentals</option>
+                    </select>
+
+                    <button type="submit" style="width:100%; margin-top:10px;">Register Now</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section1>
+<!-- About -->
+
+<section id="about" style="background:var(--cream);"">
+<div class="container2" " >
+
+<h2>About Our Institute</h2>
+
+<p >
+Greenwood Academy is committed to providing quality education in a supportive and inclusive environment. We focus on academic excellence, personal growth, and the development of strong values. Our goal is to prepare students with the knowledge, skills, and confidence needed to succeed in the future.
+
+</div>
+</section>
+
+<!-- Courses -->
+
+<section id="Courses">
+<div class="container2">
+
+<h2>Our Programs</h2>
+
+<div class="card" style="margin-bottom: 20px;">
+<h3 >Primary School (I–V) 📚</h3>
+<p>A foundation of curiosity, creativity and core skills. Our early years curriculum nurtures the love of learning through play and discovery.</p>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+<h3>Middle School (VI–VIII) 🔬</h3>
+<p>Students deepen their understanding across subjects including Science, Mathematics, Languages, Social Studies and Computer Science..</p>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+<h3>High School – Science 📐</h3>
+<p>Physics, Chemistry, Biology and Mathematics with hands-on lab experience and competitive exam preparation (JEE/NEET)..</p>
+</div>
+
+<div class="card" style="margin-bottom: 20px;">
+<h3>High School – Commerce 💼</h3>
+<p>Accountancy, Business Studies, Economics and Mathematics — perfect for future entrepreneurs and finance professionals.</p>
+</div>
+<div class="card">
+<h3>Tech and Art Clubs 🐦‍🔥</h3>
+<p>Engage in creative and technical activities outside the classroom With Robotics ,coding, Political Science and Fine Arts .</p>
+</div>
+</div>
+</section>
+
+<!-- Teachers -->
+
+<section id="faculty">
+   <div class="box" style="background:var(--white);">
+    <h2>Our Faculty</h2>
+  <div class="faculty-grid"  style="padding:px; ">
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#e8f4ff">👨‍🏫</div>
+      <h4>Dr. Jatin negi</h4>
+      <div class="role">Principal</div>
+      <div class="dept">M.Ed, Ph.D – 28 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fff0e8">👩‍🔬</div>
+      <h4>Ms. Priya Mehta</h4>
+      <div class="role">Head of Science</div>
+      <div class="dept">M.Sc Physics – 15 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#f0fff0">👨‍💻</div>
+      <h4>Mr. Arjun Singh</h4>
+      <div class="role">Computer Science</div>
+      <div class="dept">B.Tech, MCA – 12 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fff0f8">👩‍🎨</div>
+      <h4>Ms. Kavita Rani</h4>
+      <div class="role">Fine Arts & Music</div>
+      <div class="dept">M.F.A – 18 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fffde8">👨‍📚</div>
+      <h4>Mr. Suresh Kumar</h4>
+      <div class="role">Mathematics</div>
+      <div class="dept">M.Sc Maths – 20 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fff0f8">👩‍🎨</div>
+      <h4>Ms. Kavita Rani</h4>
+      <div class="role">Physics</div>
+      <div class="dept">M.F.A – 18 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fff0f8">👩‍🎨</div>
+      <h4>Ms. Kavita Rani</h4>
+      <div class="role">Chemistry</div>
+      <div class="dept">M.F.A – 18 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#fff0f8">👩‍🎨</div>
+      <h4>Ms. Kavita Rani</h4>
+      <div class="role">Biology</div>
+      <div class="dept">M.F.A – 18 yrs exp.</div>
+    </div>
+    <div class="faculty-card reveal">
+      <div class="faculty-avatar" style="background:#f8f0ff">👩‍⚕️</div>
+      <h4>Dr. Anita Verma</h4>
+      <div class="role">School Counsellor</div>
+      <div class="dept">M.A Psychology – 10 yrs exp.</div>
+    </div>
+    
+  </div>
+</div>
+</section>
+</container3>
+<!-- Contact -->
+
+<section id="contact-container">
+  <div class="container4">
+
+    <h2 class="section-title" style="text-align:center;">We'd Love to Hear From You</h2>
+
+    <div class="contact-container">
+      
+      <!-- LEFT SIDE -->
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>34 Greenwood Avenue, Model Town<br/>Ludhiana, Punjab – 141002</p>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 161 234 5678 (Office)<br/>+91 98765 43210 (Admissions)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>info@greenwoodacademy.edu.in<br/>admissions@greenwoodacademy.edu.in</p>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>Monday–Saturday: 8:00 AM – 4:00 PM<br/>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>© 2026 ABC Institute | All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+/* JavaScript */
+
+function welcome(){
+    alert("Welcome! Admission form will open soon.");
+}
+
+function submitForm(){
+    alert("Your message has been sent successfully!");
+    return false;
+}
+
+</script>
+
+</body>
+</html>
