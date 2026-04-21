@@ -5,9 +5,9 @@ TOPIC: SCHOOL WEBSITE
 
 SUBMITTED BY:
 
-NAME : Ankit Thakur, Nitin Thakur, Karan Kumar ,Sagar Ruchal
+NAME : Ankit Thakur, Nitin Thakur, Karan Kumar ,Sagar Ruchal , Zeeshan Fayaz , Arslan Showkat
 
-ROLL NUMBERS: 2558161, 2558204, 2558189, 2558219
+ROLL NUMBERS: 2558161, 2558204, 2558189, 2558219, 2558242, 2558142
 
 COURSE: BCA (2nd Semester)
 
